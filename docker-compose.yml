@@ -1,0 +1,18 @@
+version: "3"
+
+volumes:
+  pg_data:
+
+services:
+  db:
+    container_name: teste-database
+    image: mdillon/postgis
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=teste
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
